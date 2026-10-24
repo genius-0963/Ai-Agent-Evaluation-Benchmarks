@@ -1,0 +1,66 @@
+id: "multi-service-cache-001"
+name: "Multi-Service Cache Pool Recovery"
+version: "1.0.0"
+category: "multi_service_debugging"
+difficulty: "hard"
+description: >
+  Diagnose and repair a connection pool exhaustion and port misconfiguration between
+  an API Gateway service and its distributed Redis cache backend that causes cascading 500 errors.
+
+environment:
+  dockerfile: "Dockerfile"
+  working_directory: "/workspace"
+  startup_timeout_seconds: 30
+  execution_timeout_seconds: 120
+  memory_limit: "512m"
+  memory_mb: 512
+  cpus: 1.0
+  cpu_cores: 1.0
+  network_enabled: false
+  network: "disabled"
+  read_only_rootfs: false
+
+fault:
+  type: "connection_pool_exhaustion"
+  target_file: ".env"
+  fixture_file: "fixtures/broken.env"
+  repaired_fixture_file: "fixtures/repaired.env"
+  description: "Cache client connection pool size set to 0 and invalid port causing gateway 500 timeouts"
+  reset_procedure: "Copy fixtures/broken.env to .env"
+
+agent:
+  prompt_file: "prompt.md"
+  tools:
+    - read_file
+    - write_file
+    - list_files
+    - search_code
+    - run_command
+  max_runtime_seconds: 300
+  max_tool_calls: 40
+  temperature: 0.0
+  seed: 42
+
+evaluation:
+  tests_directory: "tests"
+  pass_threshold: 80
+
+scoring:
+  configuration: 25
+  startup: 25
+  behavior: 25
+  regression: 25
+
+security:
+  hidden_tests: true
+  protect_evaluator: true
+  randomized_inputs: true
+  detect_filesystem_tampering: true
+  read_only_rootfs: false
+
+artifacts:
+  - agent.log
+  - patch.diff
+  - evaluator.log
+  - container.log
+  - report.json
