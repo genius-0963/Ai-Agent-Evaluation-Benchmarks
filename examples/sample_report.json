@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "run_id": "sample-run-001",
+  "task_id": "config-recovery-001",
+  "task_version": "1.0.0",
+  "status": "passed",
+  "score": 100.0,
+  "duration_seconds": 18.42,
+  "agent": {
+    "name": "scripted-baseline",
+    "tool_calls": 3,
+    "termination_reason": "completed",
+    "summary": "Diagnosed invalid configuration in .env and restored valid catalog items."
+  },
+  "criteria": {
+    "configuration": {
+      "weight": 30.0,
+      "passed": true,
+      "score": 30.0,
+      "details": "Configuration satisfied"
+    },
+    "startup": {
+      "weight": 20.0,
+      "passed": true,
+      "score": 20.0,
+      "details": "Startup satisfied"
+    },
+    "behavior": {
+      "weight": 30.0,
+      "passed": true,
+      "score": 30.0,
+      "details": "Behavior satisfied"
+    },
+    "regression": {
+      "weight": 20.0,
+      "passed": true,
+      "score": 20.0,
+      "details": "Regression satisfied"
+    }
+  },
+  "artifacts": [
+    "results/sample-run-001_artifacts/agent.log",
+    "results/sample-run-001_artifacts/evaluator.log"
+  ],
+  "environment": {
+    "docker_image": "agentbench-config-recovery-001:1.0.0",
+    "host_os": "macOS",
+    "python_version": "3.12"
+  },
+  "error": null
+}
