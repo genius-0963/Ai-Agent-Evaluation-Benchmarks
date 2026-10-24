@@ -1,0 +1,66 @@
+id: "contract-repair-001"
+name: "API Contract Repair"
+version: "1.0.0"
+category: "api_reliability"
+difficulty: "medium"
+description: >
+  Restore a broken API response envelope contract in an order processing service
+  to satisfy client expectations and regression tests without breaking startup.
+
+environment:
+  dockerfile: "Dockerfile"
+  working_directory: "/workspace"
+  startup_timeout_seconds: 30
+  execution_timeout_seconds: 120
+  memory_limit: "512m"
+  memory_mb: 512
+  cpus: 1.0
+  cpu_cores: 1.0
+  network_enabled: false
+  network: "disabled"
+  read_only_rootfs: false
+
+fault:
+  type: "schema_contract_violation"
+  target_file: "app/main.py"
+  fixture_file: "fixtures/broken_main.py"
+  repaired_fixture_file: "fixtures/repaired_main.py"
+  description: "GET /api/v1/orders returns malformed response envelope breaking client contract"
+  reset_procedure: "Copy fixtures/broken_main.py to app/main.py"
+
+agent:
+  prompt_file: "prompt.md"
+  tools:
+    - read_file
+    - write_file
+    - list_files
+    - search_code
+    - run_command
+  max_runtime_seconds: 300
+  max_tool_calls: 40
+  temperature: 0.0
+  seed: 42
+
+evaluation:
+  tests_directory: "tests"
+  pass_threshold: 80
+
+scoring:
+  configuration: 20
+  startup: 20
+  behavior: 40
+  regression: 20
+
+security:
+  hidden_tests: true
+  protect_evaluator: true
+  randomized_inputs: true
+  detect_filesystem_tampering: true
+  read_only_rootfs: false
+
+artifacts:
+  - agent.log
+  - patch.diff
+  - evaluator.log
+  - container.log
+  - report.json
