@@ -135,17 +135,19 @@ sequenceDiagram
 
 AgentBench abandons naive single-run pass rates in favor of peer-reviewed statistical metrics.
 
-### Unbiased $\text{Pass@}k$ Estimator
+### Unbiased Pass@k Estimator
 Following Chen et al. (*HumanEval*), for $n$ total evaluation trials per task where $c$ trials succeed ($c \le n$), the unbiased estimator for $\text{Pass@}k$ is computed as:
 
 $$\text{Pass@}k = \mathbb{E}\left[1 - \frac{\binom{n - c}{k}}{\binom{n}{k}}\right] = 1.0 - \prod_{i=1}^{k} \left(\frac{n - c - i + 1}{n - i + 1}\right)$$
 
-*If $(n - c) < k$, then $\text{Pass@}k \equiv 1.0$.*
+> **Boundary Condition**: If $(n - c) \lt k$, then $\text{Pass@}k \equiv 1.0$ (at least one success is guaranteed within $k$ draws).
 
 ### 95% Confidence Interval & Score Variance
-Score dispersion is estimated via sample variance $s^2$ and two-tailed Student-$t$ distribution margins:
+Score dispersion across repeated trials is estimated via sample variance $s^2$ and Student's $t$-distribution critical margins:
 
-$$s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (S_i - \bar{S})^2 \qquad \text{CI}_{95\%} = \bar{S} \pm t_{\text{crit}} \cdot \left(\frac{s}{\sqrt{n}}\right)$$
+$$s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (S_i - \bar{S})^2$$
+
+$$\text{CI}_{0.95} = \bar{S} \pm t_{\text{crit}} \cdot \left(\frac{s}{\sqrt{n}}\right)$$
 
 ### Dual-Clock Accounting
 To prevent API inference latencies from skewing execution benchmarks, timing is partitioned into independent clocks:
