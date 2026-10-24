@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Ruff / linters
+.ruff_cache/
+
+# Benchmark artifacts & runs
+results/*.json
+!results/.gitkeep
+results/*_artifacts/
+results/run-*.md
+results/eval-*.md
+results/matrix-*.md
+
+# OS metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.saropa/
+*.swp
+*.swo
+
+# Docker / local state
+*.log
+docker_run.log
