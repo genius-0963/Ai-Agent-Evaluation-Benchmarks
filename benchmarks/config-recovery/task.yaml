@@ -1,0 +1,67 @@
+id: "config-recovery-001"
+name: "Configuration Recovery"
+version: "1.0.0"
+category: "config_recovery"
+difficulty: "medium"
+description: >
+  Diagnose and repair a configuration fault in a small service where
+  an invalid environment configuration prevents application startup
+  and catalog retrieval.
+
+environment:
+  dockerfile: "Dockerfile"
+  working_directory: "/workspace"
+  startup_timeout_seconds: 30
+  execution_timeout_seconds: 120
+  memory_limit: "512m"
+  memory_mb: 512
+  cpus: 1.0
+  cpu_cores: 1.0
+  network_enabled: false
+  network: "disabled"
+  read_only_rootfs: false
+
+fault:
+  type: "invalid_configuration"
+  target_file: ".env"
+  fixture_file: "fixtures/broken.env"
+  repaired_fixture_file: "fixtures/repaired.env"
+  description: "BENCH_CATALOG_ITEMS contains malformed string instead of a valid JSON array"
+  reset_procedure: "Copy fixtures/broken.env to .env"
+
+agent:
+  prompt_file: "prompt.md"
+  tools:
+    - read_file
+    - write_file
+    - list_files
+    - search_code
+    - run_command
+  max_runtime_seconds: 300
+  max_tool_calls: 40
+  temperature: 0.0
+  seed: 42
+
+evaluation:
+  tests_directory: "tests"
+  pass_threshold: 80
+
+scoring:
+  configuration: 30
+  startup: 20
+  behavior: 30
+  regression: 20
+
+security:
+  hidden_tests: true
+  protect_evaluator: true
+  randomized_inputs: true
+  detect_filesystem_tampering: true
+  read_only_rootfs: false
+
+artifacts:
+  - agent.log
+  - patch.diff
+  - evaluator.log
+  - container.log
+  - report.json
