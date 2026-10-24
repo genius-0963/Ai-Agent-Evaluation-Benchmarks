@@ -104,28 +104,28 @@ sequenceDiagram
     autonumber
     participant CLI as CLI / SDK
     participant DM as Docker Manager
-    participant Box as Hardened Sandbox
+    participant Container as Hardened Sandbox
     participant Agent as Candidate Agent
     participant Eval as Hidden Evaluator
     participant Stats as Stats & Reporting
 
     CLI->>DM: Build pinned image & spawn container (offline, non-root)
-    DM->>Box: Allocate cgroups (512MB RAM, 1.0 CPU, caps dropped)
+    DM->>Container: Allocate cgroups (512MB RAM, 1.0 CPU, caps dropped)
     CLI->>Eval: Step 1: Pre-flight verify baseline broken state
     Eval-->>CLI: Confirmed: Fault reproduces deterministically
-    CLI->>Box: Snapshot workspace file integrity (SHA-256)
+    CLI->>Container: Snapshot workspace file integrity (SHA-256)
     
     loop Agent Solve Loop (Bounded by tool & time budgets)
-        Agent->>Box: Invoke tool (read_file, list_files, search_text)
-        Box-->>Agent: Diagnostic output
-        Agent->>Box: Apply patch (write_file)
+        Agent->>Container: Invoke tool (read_file, list_files, search_text)
+        Container-->>Agent: Diagnostic output
+        Agent->>Container: Apply patch (write_file)
     end
 
-    CLI->>Box: Step 2: Validate integrity & anti-tampering
+    CLI->>Container: Step 2: Validate integrity & anti-tampering
     CLI->>Eval: Step 3: Grade repaired service with hidden tests & canaries
     Eval-->>CLI: Criterion Scores: Config (25%), Startup (25%), Behavior (25%), Regression (25%)
     CLI->>Stats: Step 4: Classify failure taxonomy & compute dual-clock metrics
-    Stats->>CLI: Write artifacts (agent.log, patch.diff, evaluator.log, report.json)
+    Stats-->>CLI: Write artifacts (agent.log, patch.diff, evaluator.log, report.json)
     CLI->>DM: Step 5: Guaranteed container destruction & workspace cleanup
 ```
 
