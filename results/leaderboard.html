@@ -109,19 +109,19 @@
     <div class="container">
         <header>
             <h1>AgentBench Leaderboard & Evaluation History</h1>
-            <p class="subtitle">Auditable evaluation benchmark for software engineering and autonomous agents &bull; Updated: 2026-10-24 12:23:57 UTC</p>
+            <p class="subtitle">Auditable evaluation benchmark for software engineering and autonomous agents &bull; Updated: 2026-10-24 13:07:11 UTC</p>
         </header>
 
         <div class="metrics-grid">
             <div class="card">
                 <div class="title">Total Evaluations</div>
-                <div class="value">8</div>
+                <div class="value">25</div>
                 <div class="sub">Across all registered agents</div>
             </div>
             <div class="card">
                 <div class="title">Overall Solve Rate</div>
-                <div class="value">87.5%</div>
-                <div class="sub">7 passed trials</div>
+                <div class="value">72.0%</div>
+                <div class="sub">18 passed trials</div>
             </div>
             <div class="card">
                 <div class="title">Top Ranking Agent</div>
@@ -130,7 +130,7 @@
             </div>
             <div class="card">
                 <div class="title">Active Benchmarks</div>
-                <div class="value">2</div>
+                <div class="value">3</div>
                 <div class="sub">Deterministic suites</div>
             </div>
         </div>
@@ -161,22 +161,35 @@
                 <td class="text-right"><strong>100.0%</strong></td>
                 <td class="text-right">100.0%</td>
                 <td class="text-right">100.0 / 100</td>
-                <td class="text-right">7</td>
+                <td class="text-right">17</td>
                 <td class="text-right">$0.00</td>
-                <td class="text-right">3.22s / 3.35s</td>
+                <td class="text-right">3.7s / 40.92s</td>
                 <td class="text-right">0.0%</td>
             </tr>
             
             <tr>
                 <td class="text-center"><span class="badge badge-silver">#2</span></td>
+                <td><strong>llm-llm</strong></td>
+                <td><code>default</code></td>
+                <td class="text-right"><strong>50.0%</strong></td>
+                <td class="text-right">&mdash;</td>
+                <td class="text-right">50.0 / 100</td>
+                <td class="text-right">2</td>
+                <td class="text-right">$0.0064</td>
+                <td class="text-right">4.17s / 4.84s</td>
+                <td class="text-right">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td class="text-center"><span class="badge badge-bronze">#3</span></td>
                 <td><strong>no-op</strong></td>
                 <td><code>default</code></td>
                 <td class="text-right"><strong>0.0%</strong></td>
-                <td class="text-right">&mdash;</td>
-                <td class="text-right">0.0 / 100</td>
-                <td class="text-right">1</td>
+                <td class="text-right">0.0%</td>
+                <td class="text-right">10.8 / 100</td>
+                <td class="text-right">6</td>
                 <td class="text-right">$0.00</td>
-                <td class="text-right">3.54s / 3.54s</td>
+                <td class="text-right">3.52s / 3.93s</td>
                 <td class="text-right">0.0%</td>
             </tr>
             
@@ -200,21 +213,30 @@
                 <tbody>
                     
             <tr>
+                <td><code>contract-repair-001</code></td>
+                <td class="text-right">3</td>
+                <td class="text-right">1</td>
+                <td class="text-right"><strong>33.3%</strong></td>
+                <td class="text-right">46.7</td>
+                <td class="text-right">3.87s</td>
+            </tr>
+            
+            <tr>
                 <td><code>config-recovery-001</code></td>
-                <td class="text-right">5</td>
-                <td class="text-right">4</td>
-                <td class="text-right"><strong>80.0%</strong></td>
-                <td class="text-right">80.0</td>
-                <td class="text-right">3.35s</td>
+                <td class="text-right">14</td>
+                <td class="text-right">10</td>
+                <td class="text-right"><strong>71.4%</strong></td>
+                <td class="text-right">71.4</td>
+                <td class="text-right">3.6s</td>
             </tr>
             
             <tr>
                 <td><code>multi-service-cache-001</code></td>
-                <td class="text-right">3</td>
-                <td class="text-right">3</td>
-                <td class="text-right"><strong>100.0%</strong></td>
-                <td class="text-right">100.0</td>
-                <td class="text-right">2.97s</td>
+                <td class="text-right">8</td>
+                <td class="text-right">7</td>
+                <td class="text-right"><strong>87.5%</strong></td>
+                <td class="text-right">90.6</td>
+                <td class="text-right">13.31s</td>
             </tr>
             
                 </tbody>
@@ -240,14 +262,201 @@
                 <tbody>
                     
             <tr class="run-row" data-agent="scripted-baseline" data-task="multi-service-cache-001">
+                <td><code>eval-multi-servic-scripted-t5</code></td>
+                <td><code>multi-service-cache-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">40.21s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T13:06:56</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="multi-service-cache-001">
+                <td><code>eval-multi-servic-scripted-t4</code></td>
+                <td><code>multi-service-cache-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">43.74s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T13:06:16</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="multi-service-cache-001">
+                <td><code>eval-multi-servic-scripted-t3</code></td>
+                <td><code>multi-service-cache-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">4.14s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T13:05:32</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="llm-llm" data-task="contract-repair-001">
+                <td><code>run-contract-repair--1792847062</code></td>
+                <td><code>contract-repair-001</code></td>
+                <td>llm-llm</td>
+                <td><span class="badge status-fail">FAILED</span></td>
+                <td class="text-right">0.0</td>
+                <td class="text-right">4.91s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T13:04:27</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="llm-llm" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792847054</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>llm-llm</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">3.42s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T13:04:17</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792844785</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">3.23s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:26:28</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="no-op" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792844781</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>no-op</td>
+                <td><span class="badge status-fail">FAILED</span></td>
+                <td class="text-right">0.0</td>
+                <td class="text-right">3.50s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:26:25</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792844774</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">5.53s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:26:19</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792844679</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">3.40s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:42</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="no-op" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792844675</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>no-op</td>
+                <td><span class="badge status-fail">FAILED</span></td>
+                <td class="text-right">0.0</td>
+                <td class="text-right">3.42s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:39</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="config-recovery-001">
+                <td><code>run-config-recovery--1792844669</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">4.30s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:33</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="no-op" data-task="multi-service-cache-001">
+                <td><code>matrix-multi-servic-noop-1792844655</code></td>
+                <td><code>multi-service-cache-001</code></td>
+                <td>no-op</td>
+                <td><span class="badge status-fail">PARTIAL</span></td>
+                <td class="text-right">25.0</td>
+                <td class="text-right">4.04s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:19</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="multi-service-cache-001">
+                <td><code>matrix-multi-servic-scripted-1792844651</code></td>
+                <td><code>multi-service-cache-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">3.70s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:15</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="no-op" data-task="contract-repair-001">
+                <td><code>matrix-contract-rep-noop-1792844648</code></td>
+                <td><code>contract-repair-001</code></td>
+                <td>no-op</td>
+                <td><span class="badge status-fail">PARTIAL</span></td>
+                <td class="text-right">40.0</td>
+                <td class="text-right">3.33s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:11</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="contract-repair-001">
+                <td><code>matrix-contract-rep-scripted-1792844644</code></td>
+                <td><code>contract-repair-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">3.38s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:08</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="no-op" data-task="config-recovery-001">
+                <td><code>matrix-config-recov-noop-1792844641</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>no-op</td>
+                <td><span class="badge status-fail">FAILED</span></td>
+                <td class="text-right">0.0</td>
+                <td class="text-right">3.58s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:04</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="config-recovery-001">
+                <td><code>matrix-config-recov-scripted-1792844637</code></td>
+                <td><code>config-recovery-001</code></td>
+                <td>scripted-baseline</td>
+                <td><span class="badge status-pass">PASSED</span></td>
+                <td class="text-right">100.0</td>
+                <td class="text-right">3.75s</td>
+                <td><span class="text-muted">None</span></td>
+                <td class="text-muted">2026-10-24T12:24:01</td>
+            </tr>
+            
+            <tr class="run-row" data-agent="scripted-baseline" data-task="multi-service-cache-001">
                 <td><code>eval-multi-servic-scripted-t2</code></td>
                 <td><code>multi-service-cache-001</code></td>
                 <td>scripted-baseline</td>
                 <td><span class="badge status-pass">PASSED</span></td>
                 <td class="text-right">100.0</td>
-                <td class="text-right">3.05s</td>
+                <td class="text-right">3.94s</td>
                 <td><span class="text-muted">None</span></td>
-                <td class="text-muted">2026-10-24T12:23:56</td>
+                <td class="text-muted">2026-10-24T13:05:28</td>
             </tr>
             
             <tr class="run-row" data-agent="scripted-baseline" data-task="multi-service-cache-001">
@@ -256,9 +465,9 @@
                 <td>scripted-baseline</td>
                 <td><span class="badge status-pass">PASSED</span></td>
                 <td class="text-right">100.0</td>
-                <td class="text-right">2.91s</td>
+                <td class="text-right">3.77s</td>
                 <td><span class="text-muted">None</span></td>
-                <td class="text-muted">2026-10-24T12:23:53</td>
+                <td class="text-muted">2026-10-24T13:05:24</td>
             </tr>
             
             <tr class="run-row" data-agent="no-op" data-task="config-recovery-001">
@@ -311,9 +520,9 @@
                 <td>scripted-baseline</td>
                 <td><span class="badge status-pass">PASSED</span></td>
                 <td class="text-right">100.0</td>
-                <td class="text-right">3.29s</td>
+                <td class="text-right">3.06s</td>
                 <td><span class="text-muted">None</span></td>
-                <td class="text-muted">2026-10-24T12:23:35</td>
+                <td class="text-muted">2026-10-24T12:26:36</td>
             </tr>
             
             <tr class="run-row" data-agent="scripted-baseline" data-task="config-recovery-001">
@@ -322,9 +531,9 @@
                 <td>scripted-baseline</td>
                 <td><span class="badge status-pass">PASSED</span></td>
                 <td class="text-right">100.0</td>
-                <td class="text-right">3.37s</td>
+                <td class="text-right">3.14s</td>
                 <td><span class="text-muted">None</span></td>
-                <td class="text-muted">2026-10-24T12:23:32</td>
+                <td class="text-muted">2026-10-24T12:26:33</td>
             </tr>
             
                 </tbody>
